@@ -1,0 +1,83 @@
+Notes:
+https://github.com/403studios/stack-ws#exercise-instructions
+https://topherpedersen.blog/2019/12/28/how-to-setup-a-new-flask-app-on-a-mac/
+How to cache api data with python and redis
+Setup Redis on Mac
+
+Last login: Thu May 14 03:31:19 on ttys000
+Names-iMac:~ namehere$ redis-cli
+127.0.0.1:6379> hget testcase1 1
+"json-output-one"
+127.0.0.1:6379> hget testcase1 5
+"json-output-five"
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> keys()
+(error) ERR unknown command `keys()`, with args beginning with: 
+127.0.0.1:6379> KEYS
+(error) ERR wrong number of arguments for 'keys' command
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> hset "testcase1" "1" "json-output-one"
+(integer) 1
+127.0.0.1:6379> hget testcase1
+(error) ERR wrong number of arguments for 'hget' command
+127.0.0.1:6379> hget testcase1 1
+"json-output-one"
+127.0.0.1:6379> hset "testcase14124" "1" "json-output-one"
+(integer) 1
+127.0.0.1:6379> hgetall testcase* 1
+(error) ERR wrong number of arguments for 'hgetall' command
+127.0.0.1:6379> hgetall testcase
+(empty array)
+127.0.0.1:6379> KEYS testcase*
+1) "testcase14124"
+2) "testcase1"
+127.0.0.1:6379> hgetall testcase1
+1) "1"
+2) "json-output-one"
+3) "2"
+4) "json-output-two"
+5) "3"
+6) "json-output-three"
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> hgetall *
+(empty array)
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> hgetall *
+(empty array)
+127.0.0.1:6379> hgetall *
+(empty array)
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> 
+127.0.0.1:6379> 
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> hgetall *
+(empty array)
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> FLUSHALL ASYNC
+OK
+127.0.0.1:6379> hgetall *
+(empty array)
+127.0.0.1:6379> 

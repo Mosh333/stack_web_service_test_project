@@ -1,0 +1,180 @@
+Validation Exercise:
+(1)
+GET, http://127.0.0.1:5000/, FALSE
+HEAD, http://127.0.0.1:5000/, FALSE
+GET, http://127.0.0.1:5000/stack, TRUE
+
+(2)
+testcase1, step1, GET, http://127.0.0.1:5000/documentation, TRUE
+testcase1, step2, POST, http://127.0.0.1:5000/stack, TRUE
+testcase1, step3, POST, http://127.0.0.1:5000/stack/0, TRUE, 10
+testcase1, step4, POST, http://127.0.0.1:5000/stack/0, TRUE, 54
+testcase1, step5, POST, http://127.0.0.1:5000/stack/0, TRUE, 43
+testcase1, step6, GET, http://127.0.0.1:5000/stack/0, TRUE
+testcase1, step7, GET, http://127.0.0.1:5000/stack/0/peek, TRUE
+
+testcase2, step1, GET, http://127.0.0.1:5000/stack, TRUE
+testcase2, step2, POST, http://127.0.0.1:5000/stack, TRUE
+testcase2, step3, POST, http://127.0.0.1:5000/stack/1, TRUE, 554
+testcase2, step4, POST, http://127.0.0.1:5000/stack/1, TRUE, 346
+testcase2, step5, GET, http://127.0.0.1:5000/stack/1/size, TRUE
+testcase2, step6, GET, http://127.0.0.1:5000/stack/1/peek, TRUE
+testcase2, step7, DELETE, http://127.0.0.1:5000/stack/1/clear, TRUE
+testcase2, step7, GET, http://127.0.0.1:5000/stack/1, TRUE
+
+(3)
+testcase1
+testcase2
+
+
+Sample Console Output
+Names-iMac:stack-ws namehere$ source /Users/namehere/Documents/Github/stack-ws/venv-stack-ws/bin/activate
+(venv-stack-ws) Names-iMac:stack-ws namehere$ python cache_stack_output_redis.py
+(1) Make a simple HTTP query? (2) Make a recorded test case execution? (3) Query Redis Database?
+Pick 1, 2, or 3: 1
+**************************************************************************************
+(1) Enter a simple HTTP query to execute. Syntax: method_type, URL, authentication_boolean, optional_POST_data
+e.g. GET, http://127.0.0.1:5000/stack/2, TRUE>>> GET, http://127.0.0.1:5000/, FALSE
+Request status: <Response [200]>
+REST method: GET
+URL: http://127.0.0.1:5000/
+<bound method Response.json of <Response [200]>>
+Hello World
+**************************************************************************************
+(1) Enter a simple HTTP query to execute. Syntax: method_type, URL, authentication_boolean, optional_POST_data
+e.g. GET, http://127.0.0.1:5000/stack/2, TRUE>>> HEAD, http://127.0.0.1:5000/, FALSE
+Request status: <Response [200]>
+REST method: HEAD
+URL: http://127.0.0.1:5000/
+<bound method Response.json of <Response [200]>>
+
+**************************************************************************************
+(1) Enter a simple HTTP query to execute. Syntax: method_type, URL, authentication_boolean, optional_POST_data
+e.g. GET, http://127.0.0.1:5000/stack/2, TRUE>>> GET, http://127.0.0.1:5000/stack, TRUE
+http://127.0.0.1:5000/stack
+
+Request status: <Response [200]>
+REST method: GET
+URL: http://127.0.0.1:5000/stack
+<bound method Response.json of <Response [200]>>
+[]
+**************************************************************************************
+(1) Enter a simple HTTP query to execute. Syntax: method_type, URL, authentication_boolean, optional_POST_data
+e.g. GET, http://127.0.0.1:5000/stack/2, TRUE>>> q
+(1) Make a simple HTTP query? (2) Make a recorded test case execution? (3) Query Redis Database?
+Pick 1, 2, or 3: 2
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: []
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step1, GET, http://127.0.0.1:5000/documentation, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/documentation
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step2, POST, http://127.0.0.1:5000/stack, TRUE
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step3, POST, http://127.0.0.1:5000/stack/0, TRUE, 10
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step4, POST, http://127.0.0.1:5000/stack/0, TRUE, 54
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step5, POST, http://127.0.0.1:5000/stack/0, TRUE, 43
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step6, GET, http://127.0.0.1:5000/stack/0, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/0
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}")]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase1, step7, GET, http://127.0.0.1:5000/stack/0/peek, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/0/peek
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step1, GET, http://127.0.0.1:5000/stack, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step2, POST, http://127.0.0.1:5000/stack, TRUE
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step3, POST, http://127.0.0.1:5000/stack/1, TRUE, 554
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step4, POST, http://127.0.0.1:5000/stack/1, TRUE, 346
+Currently Recording Test
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step5, GET, http://127.0.0.1:5000/stack/1/size, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/1/size
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}'), ('5', '{GET, http://127.0.0.1:5000/stack/1/size}:{2}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step6, GET, http://127.0.0.1:5000/stack/1/peek, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/1/peek
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}'), ('5', '{GET, http://127.0.0.1:5000/stack/1/size}:{2}'), ('6', '{GET, http://127.0.0.1:5000/stack/1/peek}:{346}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step7, DELETE, http://127.0.0.1:5000/stack/1/clear, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/1/clear
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}'), ('5', '{GET, http://127.0.0.1:5000/stack/1/size}:{2}'), ('6', '{GET, http://127.0.0.1:5000/stack/1/peek}:{346}'), ('7', '{DELETE, http://127.0.0.1:5000/stack/1/clear}:{None}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> testcase2, step7, GET, http://127.0.0.1:5000/stack/1, TRUE
+Currently Recording Test
+http://127.0.0.1:5000/stack/1
+
+**************************************************************************************
+(2) Create a recorded test case execution. Syntax: testcase#, step#, method_type, URL, authentication_boolean, optional_POST_data
+Existing Recorded Test Cases: [['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]], ['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}'), ('5', '{GET, http://127.0.0.1:5000/stack/1/size}:{2}'), ('6', '{GET, http://127.0.0.1:5000/stack/1/peek}:{346}'), ('7', '{GET, http://127.0.0.1:5000/stack/1}:{[]}')]]]
+e.g. testcase4, step2, POST, http://127.0.0.1:5000/stack/0, TRUE, 43>>> q
+(1) Make a simple HTTP query? (2) Make a recorded test case execution? (3) Query Redis Database?
+Pick 1, 2, or 3: 3
+**************************************************************************************
+(3) Query old test cases in redis. Syntax: testcase#
+Existing keys in redis: ['testcase1', 'testcase2']
+e.g. testcase3>>> testcase1
+[['testcase1', [('1', '{GET, http://127.0.0.1:5000/documentation}:{<html>\n    <head>\n        <title>\n            Documentation\n            </title>\n        <style>\n   }'), ('2', '{POST, http://127.0.0.1:5000/stack}:{0}'), ('3', '{POST, http://127.0.0.1:5000/stack/0}:{10}'), ('4', '{POST, http://127.0.0.1:5000/stack/0}:{54}'), ('5', '{POST, http://127.0.0.1:5000/stack/0}:{43}'), ('6', "{GET, http://127.0.0.1:5000/stack/0}:{deque(['10', '54', '43'])}"), ('7', '{GET, http://127.0.0.1:5000/stack/0/peek}:{43}')]]]
+**************************************************************************************
+(3) Query old test cases in redis. Syntax: testcase#
+Existing keys in redis: ['testcase1', 'testcase2']
+e.g. testcase3>>> testcase2
+[['testcase2', [('1', '{GET, http://127.0.0.1:5000/stack}:{[<stackapi.localCollection.LocalCollection object at 0x104194450>]}'), ('2', '{POST, http://127.0.0.1:5000/stack}:{1}'), ('3', '{POST, http://127.0.0.1:5000/stack/1}:{554}'), ('4', '{POST, http://127.0.0.1:5000/stack/1}:{346}'), ('5', '{GET, http://127.0.0.1:5000/stack/1/size}:{2}'), ('6', '{GET, http://127.0.0.1:5000/stack/1/peek}:{346}'), ('7', '{GET, http://127.0.0.1:5000/stack/1}:{[]}')]]]
+**************************************************************************************
+(3) Query old test cases in redis. Syntax: testcase#
+Existing keys in redis: ['testcase1', 'testcase2']
+e.g. testcase3>>> q
+(1) Make a simple HTTP query? (2) Make a recorded test case execution? (3) Query Redis Database?
+Pick 1, 2, or 3: q
+exiting stack_ws_terminal now
+(venv-stack-ws) Names-iMac:stack-ws namehere$ 
